@@ -5,12 +5,37 @@
     <title>krz</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <!-- hosted on netlify -->
 </head>
 
 <body>
-    <img src="./meow.png" alt="meow">
+    <section id="main">
+        <h1>krz</h1>
+        <img src="./meow.png" alt="meow">
+
+        <ul id="links">
+            <li><a href="https://github.com/krz0001" target="_blank">github</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+
+        <details>
+
+            <summary>Contact</summary>
+
+            <form name="contact" netlify>
+                <p>
+                    <label>Name <input type="text" name="name" /></label>
+                </p>
+                <p>
+                    <label>Email <input type="email" name="email" /></label>
+                </p>
+                <p>
+                    <button type="submit">Send</button>
+                </p>
+            </form>
+        </details>
+    </section>
 </body>
 
 </html>
