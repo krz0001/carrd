@@ -21,9 +21,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: sweep .5s ease-in-out;
+
 }
 
-body h1 {
+#main h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
@@ -31,10 +33,12 @@ body h1 {
     display: flex;
 }
 
-body img {
+#main img {
     width: 64px;
     height: auto;
 }
+
+/* links section */
 
 ul#links {
     display: flex;
@@ -59,7 +63,7 @@ ul#links li a {
     top: 0;
     transition: all ease 0.5s;
     font-size: 1.5em;
-    
+
 }
 
 ul#links li a:hover,
@@ -71,4 +75,26 @@ ul#links li a:focus {
 ul#links li a:focus {
     outline-offset: 0.25rem;
     outline: 5px solid var(--color-primary);
+}
+
+/* contact form */
+
+details#contact summary {
+    text-align: center;
+}
+
+details[open]#contact summary~* {
+    animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        margin-left: -10px
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
 }
