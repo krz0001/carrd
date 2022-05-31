@@ -1,17 +1,198 @@
-body {
-    background-color: #2c2c2c;
-    width: 100%;
-    height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+
+:root {
+    --color-primary-rgb: 255, 154, 51;
+    --color-primary: rgb(var(--color-primary-rgb));
+
+    --color-grey-rgb: 128, 128, 128;
+    --color-grey: rgb(var(--color-grey-rgb));
+
+    --anim-speed: .2s;
+    color-scheme: dark;
 }
 
-body img {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+body {
+    background-color: #2c2c2c;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+}
 
+#main {
+    max-width: 50ch;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1rem;
+    animation: sweep var(--color-primary) ease-in-out;
+
+}
+
+#main h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin: 0.5em;
+    display: flex;
+}
+
+#main svg {
     width: 64px;
-    height: auto;
+    height: 64px;
+    border-radius: 50%;
+    clip-path: circle(100%);
+    background-color: white;
+
+}
+
+#main svg #pupils {
+    height: 0%;
+    transition: height var(--anim-speed);
+}
+
+#main svg:hover #pupils {
+    height: 24px;
+}
+
+/* links section */
+
+ul#links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding-left: 0;
+}
+
+ul#links li {
+    list-style: none;
+    margin: 0 1rem;
+    padding: 1rem;
+}
+
+ul#links li a {
+    color: white;
+    background-color: transparent;
+
+    text-decoration: none;
+    font-size: 1.5em;
+
+    display: block;
+    position: relative;
+    top: 0;
+
+    border-radius: 256px;
+    padding: 0.25em 1em;
+
+    transition: all ease var(--anim-speed);
+
+}
+
+ul#links li a:hover {
+    color: var(--color-primary);
+}
+
+ul#links li a:focus {
+    outline: none;
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+ul#links li a:focus-visible {
+    outline-offset: 0.25rem;
+    outline: 5px solid var(--color-primary);
+}
+
+/* contact form */
+
+details#contact summary {
+    text-align: center;
+}
+
+details[open]#contact summary~* {
+    animation: sweep var(--anim-speed) ease-in-out;
+}
+
+details#contact form {
+    display: flex;
+    flex-direction: column;
+    width: 40ch;
+}
+
+details#contact input[type=text],
+details#contact input[type=email],
+details#contact textarea {
+    border: none;
+    background: transparent;
+    outline: none;
+    margin-bottom: 1em;
+    transition: all ease var(--anim-speed);
+    border-bottom: 1px solid grey;
+    background-color: rgba(var(--color-grey-rgb), 0.05);
+    border-radius: 5px 5px 0 0;
+    padding: 0.25em 0.5em;
+}
+
+details#contact input[type=text]:focus,
+details#contact input[type=email]:focus,
+details#contact textarea:focus {
+    border-color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+
+details#contact form button[type=submit] {
+    background-color: var(--color-primary);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all ease var(--anim-speed);
+    border-radius: 256px;
+}
+
+details#contact form button[type=submit]:hover {
+    transform: scale(1.1);
+}
+
+details#contact form button[type=submit]:focus,
+details#contact form button[type=submit]:focus-visible {
+    outline: none;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0.1rem rgba(var(--color-primary-rgb), 0.5);
+}
+
+
+
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        margin-left: -10px
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
+}
+
+@media (max-width: 480px) {
+    #main {
+        max-width: 90%;
+    }
+
+    details#contact,
+    details#contact form {
+
+        width: 100%;
+
+    }
+
 }
