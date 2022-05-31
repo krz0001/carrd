@@ -21,12 +21,16 @@ body {
 }
 
 #main {
-    width: 100%;
-    height: 100%;
+    max-width: 50ch;
+    margin: 0 auto;
+    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    padding-bottom: 1rem;
     animation: sweep var(--color-primary) ease-in-out;
 
 }
@@ -48,12 +52,12 @@ body {
 
 }
 
-#main svg #pupils{
+#main svg #pupils {
     height: 0%;
     transition: height var(--anim-speed);
 }
 
-#main svg:hover #pupils{
+#main svg:hover #pupils {
     height: 24px;
 }
 
@@ -80,19 +84,19 @@ ul#links li a {
 
     text-decoration: none;
     font-size: 1.5em;
-    
+
     display: block;
     position: relative;
     top: 0;
-    
+
     border-radius: 256px;
-    padding: 0.25em 1em ;
+    padding: 0.25em 1em;
 
     transition: all ease var(--anim-speed);
 
 }
 
-ul#links li a:hover{
+ul#links li a:hover {
     color: var(--color-primary);
 }
 
@@ -133,7 +137,7 @@ details#contact textarea {
     border-bottom: 1px solid grey;
     background-color: rgba(var(--color-grey-rgb), 0.05);
     border-radius: 5px 5px 0 0;
-    padding: 0.25em 0.5em ;
+    padding: 0.25em 0.5em;
 }
 
 details#contact input[type=text]:focus,
@@ -155,7 +159,7 @@ details#contact form button[type=submit] {
 }
 
 details#contact form button[type=submit]:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 details#contact form button[type=submit]:focus,
@@ -177,4 +181,18 @@ details#contact form button[type=submit]:focus-visible {
         opacity: 1;
         margin-left: 0px
     }
+}
+
+@media (max-width: 480px) {
+    #main {
+        max-width: 90%;
+    }
+
+    details#contact,
+    details#contact form {
+
+        width: 100%;
+
+    }
+
 }
