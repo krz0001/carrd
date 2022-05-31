@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
 
 :root {
-    --color-primary: #ff9a33;
+    --color-primary-rgb: 255, 154, 51;
+    --color-primary: rgb(var(--color-primary-rgb));
+
+    --color-grey-rgb: 128, 128, 128;
+    --color-grey: rgb(var(--color-grey-rgb));
+
+    --anim-speed: .2s;
     color-scheme: dark;
 }
 
@@ -21,7 +27,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: sweep .5s ease-in-out;
+    animation: sweep var(--color-primary) ease-in-out;
 
 }
 
@@ -33,9 +39,22 @@ body {
     display: flex;
 }
 
-#main img {
+#main svg {
     width: 64px;
-    height: auto;
+    height: 64px;
+    border-radius: 50%;
+    clip-path: circle(100%);
+    background-color: white;
+
+}
+
+#main svg #pupils{
+    height: 0%;
+    transition: height var(--anim-speed);
+}
+
+#main svg:hover #pupils{
+    height: 24px;
 }
 
 /* links section */
@@ -57,22 +76,32 @@ ul#links li {
 
 ul#links li a {
     color: white;
+    background-color: transparent;
+
     text-decoration: none;
+    font-size: 1.5em;
+    
     display: block;
     position: relative;
     top: 0;
-    transition: all ease 0.5s;
-    font-size: 1.5em;
+    
+    border-radius: 256px;
+    padding: 0.25em 1em ;
+
+    transition: all ease var(--anim-speed);
 
 }
 
-ul#links li a:hover,
-ul#links li a:focus {
-    transform: translateY(-0.5em) scale(1.1);
+ul#links li a:hover{
     color: var(--color-primary);
 }
 
 ul#links li a:focus {
+    outline: none;
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+ul#links li a:focus-visible {
     outline-offset: 0.25rem;
     outline: 5px solid var(--color-primary);
 }
@@ -84,7 +113,45 @@ details#contact summary {
 }
 
 details[open]#contact summary~* {
-    animation: sweep .5s ease-in-out;
+    animation: sweep var(--anim-speed) ease-in-out;
+}
+
+details#contact form {
+    display: flex;
+    flex-direction: column;
+    width: 40ch;
+}
+
+details#contact input[type=text],
+details#contact input[type=email],
+details#contact textarea {
+    border: none;
+    background: transparent;
+    outline: none;
+    margin-bottom: 1em;
+    transition: all ease var(--anim-speed);
+    border-bottom: 1px solid grey;
+    background-color: rgba(var(--color-grey-rgb), 0.05);
+    border-radius: 5px 5px 0 0;
+    padding: 0.25em 0.5em ;
+}
+
+details#contact input[type=text]:focus,
+details#contact input[type=email]:focus,
+details#contact textarea:focus {
+    border-color: var(--color-primary);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+
+details#contact form button[type=submit] {
+    background-color: var(--color-primary);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all ease var(--anim-speed);
+    border-radius: 256px;
 }
 
 @keyframes sweep {
