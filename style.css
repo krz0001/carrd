@@ -154,6 +154,19 @@ details#contact form button[type=submit] {
     border-radius: 256px;
 }
 
+details#contact form button[type=submit]:hover {
+   transform: scale(1.1);
+}
+
+details#contact form button[type=submit]:focus,
+details#contact form button[type=submit]:focus-visible {
+    outline: none;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0.1rem rgba(var(--color-primary-rgb), 0.5);
+}
+
+
+
 @keyframes sweep {
     0% {
         opacity: 0;
